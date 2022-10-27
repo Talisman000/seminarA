@@ -1858,7 +1858,7 @@ MonoBehaviour:
   cursor: {fileID: 1281224355}
   screenOffsetZ: 30
   worldOffsetY: 10
-  clickInterval: 1
+  clickInterval: 1.5
 --- !u!4 &2111687502
 Transform:
   m_ObjectHideFlags: 0
