@@ -5,23 +5,16 @@ using UnityEngine;
 
 public class FishCollector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private ScoreManager scoreManager;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fish"))
         {
             Destroy(other.gameObject);
+            var fishCore = other.GetComponent<FishCore>();
+            if (fishCore == null) return;
+            scoreManager.AddScore(fishCore.Score);
         }
     }
 }

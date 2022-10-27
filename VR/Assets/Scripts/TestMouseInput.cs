@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -16,9 +17,18 @@ public class TestMouseInput : MonoBehaviour
     public float screenOffsetZ = 10;
     public float worldOffsetY = 5;
 
+    [SerializeField] private float clickInterval = 4;
+    private float _clickTimer = 0;
+
+    private void Start()
+    {
+        _clickTimer = clickInterval;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        _clickTimer += Time.deltaTime;
         // マウスの座標（画面）
         Vector3 mousePosition = Mouse.current.position.ReadValue();
         mousePosition.z = screenOffsetZ;
@@ -31,7 +41,7 @@ public class TestMouseInput : MonoBehaviour
         // マウスが左クリックされたかどうか
         bool isLeftClicked = Mouse.current.leftButton.wasPressedThisFrame;
         // マウスが左クリックされたとき
-        if (isLeftClicked)
+        if (isLeftClicked && _clickTimer > clickInterval)
         {
             Debug.Log(mousePosition);
             Debug.Log(mouseWorldPosition);
@@ -40,6 +50,7 @@ public class TestMouseInput : MonoBehaviour
             // position: 生成する座標
             // rotation: 難しい概念なのでとりあえずquaternion.identityでOK
             Instantiate(prefab, mouseWorldPosition, quaternion.identity);
+            _clickTimer = 0;
         }
     }
 }
