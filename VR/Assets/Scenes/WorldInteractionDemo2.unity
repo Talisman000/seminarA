@@ -1947,6 +1947,7 @@ GameObject:
   - component: {fileID: 2111687504}
   - component: {fileID: 2111687506}
   - component: {fileID: 2111687507}
+  - component: {fileID: 2111687508}
   m_Layer: 0
   m_Name: '[Manager]'
   m_TagString: Untagged
@@ -2053,6 +2054,18 @@ MonoBehaviour:
   playerController: {fileID: 915688951}
   timeG: 60
   timeText: {fileID: 1074296889}
+--- !u!114 &2111687508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111687500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82634584164af84ea1a20054f599945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2145489130
 GameObject:
   m_ObjectHideFlags: 0
